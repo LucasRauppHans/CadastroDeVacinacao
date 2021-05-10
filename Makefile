@@ -6,10 +6,11 @@ run:
 build:
 	@gcc \
 	-g \
-	./product/product.c \
 	./node/node.c \
 	./linked-list/linked_list.c \
 	./queue/queue.c \
+	./cidadao/cidadao.c \
+	./vacinacao/vacinacao.c \
 	main.c \
 	-o covid
 

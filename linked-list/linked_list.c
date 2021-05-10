@@ -159,5 +159,10 @@ void print_list(linked_list_t *l,
         
     } while ( (node = node->next) != NULL );
 
-    printf("=== List size: %zi\n", size_list(l));
+    //printf("=== List size: %zi\n", size_list(l));
 }
+
+void       set_first(linked_list_t *l, sl_node_t *node) { l->first = node; }
+void       set_last (linked_list_t *l, sl_node_t *node) { l->last  = node; }
+sl_node_t* get_first(linked_list_t *l)                  { return l->first; } 
+sl_node_t* get_last (linked_list_t *l)                  { return l->last;  }

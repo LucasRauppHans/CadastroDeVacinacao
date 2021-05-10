@@ -15,7 +15,7 @@ size_t size_queue(queue_t* q) {
 }
 
 int empty_queue(queue_t* q) {
-    return (size_list(q->list) == 0);
+    return (size_queue(q) == 0);
 }
 
 int enqueue(queue_t* q, void* data) {

@@ -16,4 +16,5 @@ void delete_node(sl_node_t *node) { free(node->data); free(node); }
 
 void* get_data(sl_node_t *node)   { return node->data; }
 
-sl_node_t* get_next(sl_node_t *node) { return node->next; }
+void       set_next(sl_node_t *node, sl_node_t *next) { node->next = next; }
+sl_node_t* get_next(sl_node_t *node)                  { return node->next; }
