@@ -29,18 +29,18 @@ bool tem_prioridade(cidadao_t *c1, cidadao_t *c2) {
 }
 
 /* insere cidadão na fila de prioridade de vacinação */
-int insere_cidadao_fila(queue_t *q, cidadao_t *cid) {
-    sl_node_t *node = new_node(cid, q->list->size_data);
+int insere_cidadao_fila(fila_vacina *f, cidadao_t *cid) {
+    sl_node_t *node = new_node(cid, f->list->size_data);
     if ( node == NULL ) {
         return EXIT_FAILURE;
     };
 
-    if ( size_queue(q) == 0 ) {
-        set_first(q->list, node);
-        set_last (q->list, node);
+    if ( size_queue(f) == 0 ) {
+        set_first(f->list, node);
+        set_last (f->list, node);
     } else {
         sl_node_t *prev_node = NULL, *next_node = NULL,
-                  *node_it   = get_first(q->list);
+                  *node_it   = get_first(f->list);
         cidadao_t *cid_it    = NULL;
 
         while ( node_it != NULL ) {
@@ -49,9 +49,9 @@ int insere_cidadao_fila(queue_t *q, cidadao_t *cid) {
             if ( tem_prioridade(cid, cid_it) ) {
                 sl_node_t *tmp_node = NULL;
                 if ( prev_node == NULL ) {
-                    tmp_node = get_first(q->list);
+                    tmp_node = get_first(f->list);
                     set_next(node, tmp_node);
-                    set_first(q->list, node);
+                    set_first(f->list, node);
                 } else {
                     tmp_node = get_next(prev_node); 
                     set_next(prev_node, node);
@@ -65,7 +65,7 @@ int insere_cidadao_fila(queue_t *q, cidadao_t *cid) {
 
             if ( next_node == NULL ) {
                 set_next(node_it, node);
-                set_last(q->list, node);
+                set_last(f->list, node);
                 break;
             }
 
@@ -73,7 +73,7 @@ int insere_cidadao_fila(queue_t *q, cidadao_t *cid) {
         }
     }
 
-    q->list->length_list++;
+    f->list->length_list++;
     return EXIT_SUCCESS;
 }
 
@@ -91,6 +91,7 @@ void vacina_cidadao(fila_vacina *f) {
     cidadao_t *c = dequeue(f);
     printf("Cidadao vacinado: ");
     imprime_cidadao(c);
+    free(c);
 }
 
 void imprime_fila_vacinacao(fila_vacina *f) {

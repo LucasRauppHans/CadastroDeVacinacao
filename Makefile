@@ -1,5 +1,7 @@
 # Makefile
 
+all: build run
+
 run:
 	@./covid
 
@@ -13,5 +15,3 @@ build:
 	./vacinacao/vacinacao.c \
 	main.c \
 	-o covid
-
-all: build run
