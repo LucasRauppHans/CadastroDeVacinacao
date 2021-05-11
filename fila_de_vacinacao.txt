@@ -1,0 +1,3 @@
+Felipe,24,A
+Lucas,35,B
+Paulo,55,C

@@ -15,3 +15,4 @@ build:
 	./vacinacao/vacinacao.c \
 	main.c \
 	-o covid
+
