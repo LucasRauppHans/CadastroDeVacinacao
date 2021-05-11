@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "../cidadao/cidadao.h"
 #include "../queue/queue.h"
 

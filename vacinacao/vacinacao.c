@@ -1,7 +1,4 @@
 #include "vacinacao.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 fila_vacina *nova_fila_vacina()
 {
@@ -30,7 +27,7 @@ int compara_riscos(cidadao_t *c1, cidadao_t *c2)
 bool tem_prioridade(cidadao_t *c1, cidadao_t *c2)
 {
     return (compara_riscos(c1, c2) == 1 &&
-            (c1->idade >= c2->idade - 5 || c1->idade >= c2->idade)) ||
+            c1->idade >= c2->idade - 5) ||
            (compara_riscos(c1, c2) == -1 &&
             c1->idade > c2->idade);
 }
