@@ -99,7 +99,7 @@ void cadastra_cidadao(fila_vacina *f, cidadao_t *c)
     {
         fprintf(stderr, "Nao foi possivel cadastrar novo cidadao.\n");
     }
-    escreve_arquivo(c);
+    // escreve_arquivo(c);
 }
 
 void vacina_cidadao(fila_vacina *f)
@@ -117,38 +117,38 @@ void imprime_fila_vacinacao(fila_vacina *f)
     print_queue(f, print_cidadao_func);
 }
 
-void escreve_arquivo(cidadao_t *c)
-{
-    FILE *arq;
-    arq = fopen("fila_de_vacinacao.txt", "a");
-    int r;
+// void escreve_arquivo(cidadao_t *c)
+// {
+//     FILE *arq;
+//     arq = fopen("fila_de_vacinacao.txt", "a");
+//     int r;
 
-    if (!arq)
-    {
-        printf("Erro ao abrir arquivo '%s'!\n", "fila_de_vacinacao.txt");
-    }
+//     if (!arq)
+//     {
+//         printf("Erro ao abrir arquivo '%s'!\n", "fila_de_vacinacao.txt");
+//     }
 
-    char idade[5];
-    itoa(c->idade, idade, 10);
+//     char idade[5];
+//     itoa(c->idade, idade, 10);
 
-    char grupo_de_risco[2];
-    grupo_de_risco[0] = c->grupo_de_risco;
-    grupo_de_risco[1] = '\0';
+//     char grupo_de_risco[2];
+//     grupo_de_risco[0] = c->grupo_de_risco;
+//     grupo_de_risco[1] = '\0';
 
-    fputs(c->nome, arq);
-    fputs(", ", arq);
-    fputs(idade, arq);
-    fputs(", ", arq);
-    fputs(grupo_de_risco, arq);
-    fputs("\n", arq);
+//     fputs(c->nome, arq);
+//     fputs(", ", arq);
+//     fputs(idade, arq);
+//     fputs(", ", arq);
+//     fputs(grupo_de_risco, arq);
+//     fputs("\n", arq);
 
-    if (r == EOF)
-    {
-        printf("Erro ao tentar gravar os dados! \n");
-    }
+//     if (r == EOF)
+//     {
+//         printf("Erro ao tentar gravar os dados! \n");
+//     }
 
-    fclose(arq);
-}
+//     fclose(arq);
+// }
 
 int le_arquivo(fila_vacina *l, char *nome_arq)
 {
